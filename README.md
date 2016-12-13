@@ -1,18 +1,9 @@
-# NODE-GOOGLE
+# NODE-GOOGLE-POPUP
 
- 
+This application illustrations a standard dialog for obtaining a code and 
+access token/refresh token without using passport or requiring the application
+authenticate.
 
-
-### Enabling CORS
-
-http://enable-cors.org/server_expressjs.html
-http://jonathanmh.com/how-to-enable-cors-in-express-js-node-js/
-
-
-### Sessions and Middleware
-
-> https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
-> http://stackoverflow.com/questions/13133071/express-next-function-what-is-it-really-for
 
 ##  Running locally
 
@@ -39,5 +30,5 @@ run mongod -f /Users/dhenton/mongo_data/mongod.conf
 or mongod --dbpath=/Users/dhenton/mongo_data/db
 
 ### Start node server
-node server.js (at root directory) http://localhost:3000
+node server.js (at root directory) http://localhost:3500
 
