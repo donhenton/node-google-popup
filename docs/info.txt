@@ -1,0 +1,11 @@
+
+https://scotch.io/tutorials/easy-node-authentication-google
+
+enable google+ api in the console
+
+http://pastebin.com/MzHsLx4b
+
+
+refresh token 
+
+https://github.com/jaredhanson/passport-google-oauth2/issues/4
