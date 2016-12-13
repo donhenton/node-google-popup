@@ -17,7 +17,7 @@ var config = require('./config'),
 var fs = require('fs');
 var vm = require('vm');
 var cookieParser = require('cookie-parser');
-var passport = require('passport');
+ 
 
 // Define the Express configuration method
 module.exports = function () {
@@ -53,10 +53,7 @@ module.exports = function () {
         })
     }));
 
-
-    require('../app/authentication/initPassport')(config)
-    app.use(passport.initialize());
-    app.use(passport.session());
+ 
 
 
     // Set the application view engine and 'views' folder
