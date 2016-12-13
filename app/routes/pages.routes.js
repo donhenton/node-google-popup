@@ -32,12 +32,13 @@ module.exports = function (app,config) {
   
     var indexRender = function (req, res) {
 
-
+        var configInfo = JSON.stringify({ client_id: config.clientID, redirect_uri: config.callbackURL });
+          
+          console.log("zzz "+configInfo);
 
         // Use the 'response' object to render the 'index' view with a 'title' property
         res.render('index', {
-            title: 'Node Demonstration App',
-            stuff: 'stuff' 
+            title: 'Node Demonstration App' 
         });
 
     };

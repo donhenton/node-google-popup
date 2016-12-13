@@ -62,7 +62,7 @@ module.exports = function () {
 
     // Load the 'index' routing file
 
-
+    require('../app/routes/auth.routes.js')(app,config);
     require('../app/routes/pages.routes.js')(app,config);
     require('../app/routes/calendar.routes.js')(app,config);
 
