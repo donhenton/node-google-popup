@@ -46,33 +46,34 @@ module.exports = function (app, config) {
                         refresh_token: body.refresh_token,
                         id_token: body.id_token
                     }
+                    req.session['refreshToken'] = body.refresh_token;
+                    req.session['token'] = body.access_token;
+
                     return info;
 
 
                 }).then(function (info) {
-                    var userOptions = {
-                        method: 'GET',
-                        headers: {
-                            Authorization: 'Bearer '+info.access_token,
-                        },
-                        uri:'https://www.googleapis.com/oauth2/v3/userinfo'
-                    }
-                    return rp(userOptions); 
-                    
-                }) .then(function (body) {
-                    console.log("userbody\n"+(typeof body))
-                    res.render('calendarPage', {
-                        title: 'Calendar Page'
-                    });
-                    
-                })
+            var userOptions = {
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + info.access_token,
+                },
+                //'https://www.googleapis.com/oauth2/v3/userinfo'
+                //https://www.googleapis.com/plus/v1/people/me
+                uri: 'https://www.googleapis.com/plus/v1/people/me'
+            }
+            return rp(userOptions);
+
+        }).then(function (body) {
+            console.log("userbody\n" + body)
+            var user = JSON.parse(body);
+
+            res.redirect('/calendarPage')
+
+        })
                 .catch(function (err) {
                     throw new Error(err.message);
                 });
-
-
-
-
 
     }
 
@@ -87,6 +88,18 @@ module.exports = function (app, config) {
 
 
     });
+    app.get('/calendarPage', function (req, res) {
+
+        res.render('calendarPage', {
+            title: 'Calendar Page',
+            user: req.session.user
+        });
+
+
+    });
+
+
+
     app.get('/auth/google/callback', function (req, res) {
 
         handleCallBack(req, res);

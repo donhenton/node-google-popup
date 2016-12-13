@@ -19,8 +19,8 @@
         
         <section class="column50Left">
          <table class="table table-striped">
-         <tr><th>User Name:</th><td><%= user.name %> </td>     <% if (locals.user.image) { %>
-        <td rowspan="2" align="center"><img src="<%= locals.user.image %>"></td>
+         <tr><th>User Name:</th><td><%= user.displayName %> </td>     <% if (user.image.url) { %>
+        <td rowspan="2" align="center"><img src="<%= user.image.url %>"></td>
  
         <% } %>  </tr>
          <tr><th>User Id:</th><td><%= user.id %></td></tr>

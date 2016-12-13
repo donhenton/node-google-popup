@@ -36,7 +36,7 @@ module.exports = function (app, config) {
         };
         if (!req.user)
         {
-            throw new Error("use must be logged in !!!!!");
+            err(new Error("user must be logged in!"));
         }
         var oauth2Client = createClient(req);
         var calendar = google.calendar('v3');
@@ -73,9 +73,8 @@ module.exports = function (app, config) {
                 return;
                 
             }
-            var current = req.session.passport.user['token'];
-            req.user['token'] = token;
-            req.session.passport.user['token'] = token;
+            var current = req.session['token'];
+            req.session['token'] = token;
             console.log("current "+current +" new "+token);
         });
                 
@@ -85,8 +84,8 @@ module.exports = function (app, config) {
         var auth = new googleAuth();
         var oauth2Client = new auth.OAuth2(authVars.clientID, authVars.clientSecret, authVars.callbackUrl);
         oauth2Client.setCredentials({
-            access_token: req.user.token,
-            refresh_token: req.user.refreshToken
+            access_token: req.session.token,
+            refresh_token: req.session.refreshToken
 
         });
         return oauth2Client;
@@ -98,10 +97,11 @@ module.exports = function (app, config) {
         var error = function (err) {
             reportError(res, err.toString());
         };
-        if (!req.user)
-        {
-            throw new Error("use must be logged in !!!!!");
-        }
+//        if (!req.user)
+//        {
+//            error(new Error("use must be logged in !!!!!"));
+//            return;
+//        }
         var oauth2Client = createClient(req)
 
 
