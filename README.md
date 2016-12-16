@@ -2,7 +2,7 @@
 
 This application illustrations a standard dialog for obtaining a code and 
 access token/refresh token without using passport or requiring the application
-authenticate.
+authentication.
 
 
 ##  Running locally
