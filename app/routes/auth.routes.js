@@ -67,7 +67,7 @@ module.exports = function (app, config) {
         }).then(function (body) {
             console.log("userbody\n" + body)
             var user = JSON.parse(body);
-
+            req.session['user'] = user;
             res.redirect('/calendarPage')
 
         })
