@@ -1,0 +1,33 @@
+ <% include  partials/header %>
+	 
+<style>
+  .demoTable td
+   {
+      padding-left: 10px;
+       
+   }
+   .demoTable td input
+   {
+      border: 2px solid black;
+      height: 30px;
+   }
+
+</style>
+	 
+	<h3>Sample Application</h3>
+        
+        
+        <section>
+         <table class="table table-striped">
+         <tr><th>User Name:</th><td><%= user.displayName %> </td>     <% if (user.image.url) { %>
+        <td rowspan="2" align="center"><img src="<%= user.image.url %>"></td>
+ 
+        <% } %>  </tr>
+         <tr><th>User Id:</th><td><%= user.id %></td></tr>
+         </table>
+        </section>
+        
+    
+    
+
+ <% include  partials/footer %>

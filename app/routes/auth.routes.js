@@ -68,7 +68,7 @@ module.exports = function (app, config) {
             console.log("userbody\n" + body)
             var user = JSON.parse(body);
             req.session['user'] = user;
-            res.redirect('/calendarPage')
+            res.redirect('/identityPage')
 
         })
                 .catch(function (err) {
@@ -88,10 +88,10 @@ module.exports = function (app, config) {
 
 
     });
-    app.get('/calendarPage', function (req, res) {
+    app.get('/identityPage', function (req, res) {
 
-        res.render('calendarPage', {
-            title: 'Calendar Page',
+        res.render('identityPage', {
+            title: 'Identity Page',
             user: req.session.user
         });
 
