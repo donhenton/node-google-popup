@@ -9,3 +9,8 @@ http://pastebin.com/MzHsLx4b
 refresh token 
 
 https://github.com/jaredhanson/passport-google-oauth2/issues/4
+
+popup pathway
+
+http://www.gethugames.in/2012/04/authentication-and-authorization-for-google-apis-in-javascript-popup-window-tutorial.html
+https://www.sitepoint.com/oauth-popup-window/

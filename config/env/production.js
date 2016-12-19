@@ -7,5 +7,6 @@ module.exports = {
     db: {url: 'mongodb://localhost/local'},
     clientID: 'stugff',
     clientSecret: 'stuff',
-    callbackURL: 'http://localhost:3500/auth/google/callback'
+    callbackURL: 'http://localhost:3500/auth/google/callback',
+    popupCallbackURL: 'http://localhost:3500/auth/google/popup/callback'
 };

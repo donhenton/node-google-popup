@@ -10,7 +10,7 @@ module.exports = function (app, config) {
         var url = "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline" +
                 "&prompt=consent&response_type=code" +
                 "&redirect_uri=" + config.callbackURL +
-                "&scope=profile+email+https://www.googleapis.com/auth/plus.login+https://www.googleapis.com/auth/calendar" +
+                "&scope=profile+email" +
                 "&client_id=" + config.clientID;
         res.redirect(url);
 
@@ -65,7 +65,7 @@ module.exports = function (app, config) {
             return rp(userOptions);
 
         }).then(function (body) {
-            console.log("userbody\n" + body)
+           // console.log("userbody\n" + body)
             var user = JSON.parse(body);
             req.session['user'] = user;
             res.redirect('/identityPage')
