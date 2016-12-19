@@ -14,10 +14,9 @@ function popUpWindow( )
             "&scope=profile+email" +
             "&client_id=" + CONFIG.client_id;
 
-    //var options = {};
-    //options['windowName'] = "GoogleOAuthWindow";
-    //options['windowOptions'] = "location=100,status=0,"
-    // 630133481040-npvicb6lrpcpssitgci9drar71cl7vej.apps.googleusercontent.com"
+    var validateUrl = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
+    //var userInfoUrl = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=';
+    var userInfoUrl = 'https://www.googleapis.com/plus/v1/people/me?access_token=';
 
     var windowName = "authWindow";
     var self = this;
@@ -32,7 +31,7 @@ function popUpWindow( )
 
             if (windowHandle.closed != false)
             {
-                
+
                 console.log("the window has been closed");
                 window.clearInterval(pollTimer);
                 if (windowHandle.document)
@@ -46,11 +45,11 @@ function popUpWindow( )
                     tokenInfo['access_token'] = gup(url, 'access_token');
                     tokenInfo['token_type'] = gup(url, 'token_type');
                     tokenInfo['expires_in'] = gup(url, 'expires_in');
-                    validateToken(tokenInfo);
+                    validateToken(validateUrl, userInfoUrl, tokenInfo);
                 }
                 windowHandle.close();
 
-                
+
             }
         } catch (e) {
             console.log("error " + e)
@@ -72,10 +71,31 @@ function gup(url, name) {
         return results[1];
 }
 
-function validateToken(tokenInfo)
+function validateToken(validateUrl, userInfoUrl, tokenInfo)
 {
+    $.ajax(
+            {
+                url: validateUrl + tokenInfo.access_token,
+                data: null
+            }
+    ).done(function (data)
+    {
+        //console.log("validate success "+JSON.stringify(data)) 
+        return $.ajax(
+                {
+                    url: userInfoUrl + tokenInfo.access_token,
+                    data: null
+                }).done(function (data) {
+                    
+                    console.log("uuuu " + JSON.stringify(data))
+                    return data ;
+             
+                });
 
-    console.log("validate " + JSON.stringify(tokenInfo));
+    }).fail(function (xhr, status, error) {
+        console.log("ERROR in validate " + JSON.stringify(xhr))
+    })
+    //console.log("validate " + JSON.stringify(tokenInfo));
 
 }
 
