@@ -9,7 +9,7 @@ authentication.
 * Authenication to Google at the client level using jQuery
 
 ## Configuring google applications
-A google application must be configured in the standard way. Including setting javascript origins and callback urls.
+A google application must be configured in the standard way. Including setting javascript origins and callback urls. See [this tutorial](https://scotch.io/tutorials/easy-node-authentication-google) for more
 
 ##  Running locally
 
