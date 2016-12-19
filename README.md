@@ -1,9 +1,12 @@
 # NODE-GOOGLE-POPUP
 
 This application illustrations a standard dialog for obtaining a code and 
-access token/refresh token without using passport or requiring the application
+access token/refresh token without using passport or requiring  application
 authentication.
 
+## Demonstrations available
+* Authenication to Google at the server level in routes
+* Authenication to Google at the client level using jQuery
 
 ##  Running locally
 
