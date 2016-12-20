@@ -7,7 +7,7 @@
 
 function popUpWindow( )
 {
-
+    $('#replyData').val("")
     var url = "https://accounts.google.com/o/oauth2/v2/auth?" +
             "&response_type=token" +
             "&redirect_uri=" + CONFIG.popup_redirect_uri +
