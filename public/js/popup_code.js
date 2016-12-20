@@ -87,7 +87,9 @@ function validateToken(validateUrl, userInfoUrl, tokenInfo)
                     data: null
                 }).done(function (data) {
                     
-                    console.log("uuuu " + JSON.stringify(data))
+                      JSON.stringify(data) 
+                    
+                    $('#replyData').val(JSON.stringify(data))
                     return data ;
              
                 });
@@ -103,7 +105,7 @@ $(document).ready(
         function ()
         {
             $('#popUpLink').click(function (e) {
-                console.log("Bite me!!!!!!!")
+                 
                 e.stopPropagation();
                 popUpWindow();
             });

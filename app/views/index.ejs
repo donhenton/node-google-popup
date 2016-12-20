@@ -1,16 +1,31 @@
  <% include  partials/header %>
 	 
- 
+ <style>
+   #replyData
+   {
+        width: 250px;
+        height: 250px;
+
+   {
+
+</style>
 	 
 	<h3><%= title %></h3>
         
         <div class="row">
         <section class="column50Left">
-         <a  class="pull-left btn btn-large btn-primary"   href="/obtainCode">Login Via Server Node</a>
-         <a  class="pull-right btn btn-large btn-primary" id="popUpLink" href="#">Login Via Client Code</a>
+         <a  class="  btn btn-large btn-primary"   href="/obtainCode">Login Via Server Node</a>
+         <a  class="  btn btn-large btn-primary" id="popUpLink" href="#">Login Via Client Code</a>
+        </section>
+ 
+        <section class="column50Right">
+         <textarea id='replyData'></textarea>
+
+
+
+
         </section>
      </div>
-
 
 <script>
 
