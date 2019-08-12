@@ -13,8 +13,8 @@ A google application must be configured in the standard way. Including setting j
 
 ##  Running locally
 
-###Start Mongodb
-brew install mongodb
+### Start Mongodb
+```brew install mongodb```
 
 to run
 
